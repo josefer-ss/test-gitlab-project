@@ -7,14 +7,23 @@ import './App.css'
 // handlers down to the form (to add) and the list (to render).
 function App() {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Learn what a Git branch is' },
-    { id: 2, text: 'Make your first commit' },
+    { id: 1, text: 'Learn what a Git branch is', completed: false },
+    { id: 2, text: 'Make your first commit', completed: false },
   ])
 
   // Add a new todo to the top of the list.
   function addTodo(text) {
-    const newTodo = { id: Date.now(), text }
+    const newTodo = { id: Date.now(), text, completed: false }
     setTodos([newTodo, ...todos])
+  }
+
+  // Flip the completed flag of a single todo.
+  function toggleTodo(id) {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo,
+      ),
+    )
   }
 
   return (
@@ -26,11 +35,11 @@ function App() {
 
       <section className="card">
         <TodoForm onAdd={addTodo} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onToggle={toggleTodo} />
       </section>
 
       <footer className="app__footer">
-        Built for the Git Bootcamp · branch <code>main</code>
+        Built for the Git Bootcamp · branch <code>feature/filter-and-complete</code>
       </footer>
     </main>
   )

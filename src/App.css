@@ -95,8 +95,21 @@
   border-radius: 8px;
 }
 
+.todo-item__checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--color-accent);
+  cursor: pointer;
+}
+
 .todo-item__text {
   flex: 1;
+}
+
+/* A completed todo is muted and struck through */
+.todo-item--done .todo-item__text {
+  color: var(--color-muted);
+  text-decoration: line-through;
 }
 
 .app__footer {
