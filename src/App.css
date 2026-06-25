@@ -70,6 +70,36 @@
   background: var(--color-accent-hover);
 }
 
+/* Filter buttons */
+.todo-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.todo-filter__button {
+  flex: 1;
+  padding: 6px 10px;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.todo-filter__button:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.todo-filter__button--active {
+  color: #ffffff;
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
 /* List */
 .todo-list {
   list-style: none;
